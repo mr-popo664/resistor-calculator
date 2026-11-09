@@ -1025,6 +1025,61 @@
         updateDecoder();
       })();
     </script>
+      <h2>How to Read a 4-Band Resistor Color Code</h2>
+
+<p>
+  In your engineering labs, resistors are the most common passive electronic components you will encounter. Because axial through-hole resistors are tiny, their electrical resistance values cannot be easily printed as numbers. Instead, manufacturers print colored rings called color bands. A 4-band resistor indicates its nominal resistance in Ohms (Ω) and its manufacturing tolerance percentage.
+</p>
+
+<h2>Step-by-Step Decoding Process</h2>
+
+<p>
+  <strong>Step 1: Orient the resistor correctly.</strong> Turn the resistor so that the metallic band (usually Gold or Silver) is positioned on your far right. This separated band represents the tolerance. You will always read the bands from left to right.
+</p>
+
+<p>
+  <strong>Step 2: Note the significant digits (Bands 1 &amp; 2).</strong> The first band gives you the first digit (tens place), and the second band gives you the second digit (units place). For instance, if Band 1 is Red (2) and Band 2 is Violet (7), your base two-digit number is <strong>27</strong>.
+</p>
+
+<p>
+  <strong>Step 3: Apply the multiplier (Band 3).</strong> The third band specifies the power of ten (10<sup>n</sup>) by which you multiply your two-digit number. If Band 3 is Orange (10<sup>3</sup> or &times;1,000), multiply 27 &times; 1,000 = <strong>27,000 &Omega; (27 k&Omega;)</strong>.
+</p>
+
+<p>
+  <strong>Step 4: Check tolerance (Band 4).</strong> The fourth band indicates the precision limit. A Gold band represents &plusmn;5% tolerance. A 27 k&Omega; resistor with a &plusmn;5% tolerance can measure anywhere between 25.65 k&Omega; and 28.35 k&Omega; on a digital multimeter (DMM).
+</p>
+
+<h2>Standard 4-Band Color Code Chart</h2>
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; width: 100%; text-align: left;">
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th>Color</th>
+      <th>Digit (Bands 1 &amp; 2)</th>
+      <th>Multiplier (Band 3)</th>
+      <th>Tolerance (Band 4)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Black</td><td>0</td><td>&times;1 &Omega; (10<sup>0</sup>)</td><td>&mdash;</td></tr>
+    <tr><td>Brown</td><td>1</td><td>&times;10 &Omega; (10<sup>1</sup>)</td><td>&plusmn;1%</td></tr>
+    <tr><td>Red</td><td>2</td><td>&times;100 &Omega; (10<sup>2</sup>)</td><td>&plusmn;2%</td></tr>
+    <tr><td>Orange</td><td>3</td><td>&times;1 k&Omega; (10<sup>3</sup>)</td><td>&mdash;</td></tr>
+    <tr><td>Yellow</td><td>4</td><td>&times;10 k&Omega; (10<sup>4</sup>)</td><td>&mdash;</td></tr>
+    <tr><td>Green</td><td>5</td><td>&times;100 k&Omega; (10<sup>5</sup>)</td><td>&plusmn;0.5%</td></tr>
+    <tr><td>Blue</td><td>6</td><td>&times;1 M&Omega; (10<sup>6</sup>)</td><td>&plusmn;0.25%</td></tr>
+    <tr><td>Violet</td><td>7</td><td>&times;10 M&Omega; (10<sup>7</sup>)</td><td>&plusmn;0.1%</td></tr>
+    <tr><td>Gray</td><td>8</td><td>&times;100 M&Omega; (10<sup>8</sup>)</td><td>&plusmn;0.05%</td></tr>
+    <tr><td>White</td><td>9</td><td>&times;1 G&Omega; (10<sup>9</sup>)</td><td>&mdash;</td></tr>
+    <tr><td>Gold</td><td>&mdash;</td><td>&times;0.1 &Omega; (10<sup>-1</sup>)</td><td>&plusmn;5%</td></tr>
+    <tr><td>Silver</td><td>&mdash;</td><td>&times;0.01 &Omega; (10<sup>-2</sup>)</td><td>&plusmn;10%</td></tr>
+  </tbody>
+</table>
+
+<p>
+  <strong>Quick Lab Mnemonic:</strong> To quickly memorize the sequence from 0 to 9, remember: <em>"<strong>B</strong>.<strong>B</strong>. <strong>R</strong>.<strong>O</strong>.<strong>Y</strong>. of <strong>G</strong>reat <strong>B</strong>ritain had a <strong>V</strong>ery <strong>G</strong>ood <strong>W</strong>ife."</em> Before soldering components or powering on your prototype circuit, always confirm your calculated value with an ohmmeter!
+</p>
+    
   </body>
 </html>
 
