@@ -9,7 +9,7 @@
 </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resistor Color Code Decoder</title>
+    <title>4-Band Resistor Color Code Calculator &amp; Guide</title>
     <meta name="description" content="Interactive 4-band resistor color code decoder and calculator with real-time visual resistor rendering." />
     <meta property="og:title" content="Resistor Color Code Decoder" />
     <meta property="og:description" content="Decode 4-band resistor color codes into resistance and tolerance values with an interactive resistor graphic." />
@@ -58,6 +58,41 @@
         text-align: center;
         padding-bottom: 0.5rem;
       }
+      
+      /* Add this right below your header { ... } block */
+
+.info-section {
+  background-color: rgba(255, 255, 255, 0.05); /* Slight contrast from the main background */
+  padding: 2rem;
+  border-radius: 8px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.info-section h2, 
+.info-section h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.info-section p {
+  margin-bottom: 1.5rem;
+}
+
+.step-card {
+  background-color: rgba(0, 0, 0, 0.25); /* Darker inset look for the cards */
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border-left: 4px solid #4a90e2; /* Blue accent line to make it pop */
+}
+
+.step-card strong {
+  color: #4a90e2; /* Match the accent line */
+  display: block; /* Puts the step title on its own line */
+  margin-bottom: 0.25rem;
+}
 
       .badge-title {
         display: inline-flex;
@@ -74,6 +109,38 @@
         border: 1px solid rgba(59, 130, 246, 0.25);
         margin-bottom: 0.75rem;
       }
+      
+      /* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background-color: rgba(0, 0, 0, 0.25); /* Matches the step cards */
+  border-radius: 8px;
+  overflow: hidden; /* Keeps the rounded corners clean */
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle divider lines */
+}
+
+th {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #4a90e2; /* Blue accent for headers */
+  font-weight: 600;
+}
+
+/* Remove the line under the very last row */
+tr:last-of-type td {
+  border-bottom: none;
+}
+
+/* Highlight rows slightly when hovering over them */
+tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
 
       h1 {
         font-size: 1.875rem;
@@ -1032,32 +1099,34 @@
       })();
     </script>
       <h2>How to Read a 4-Band Resistor Color Code</h2>
+      
+      <section class="info-section">
+  <p>In your engineering labs, resistors are the most common passive electronic components you will encounter. Because axial through-hole resistors are tiny, their electrical resistance values cannot be easily printed as numbers. Instead, manufacturers print colored rings called color bands. A 4-band resistor indicates its nominal resistance in Ohms (Ω) and its manufacturing tolerance percentage.</p>
 
-<p>
-  In your engineering labs, resistors are the most common passive electronic components you will encounter. Because axial through-hole resistors are tiny, their electrical resistance values cannot be easily printed as numbers. Instead, manufacturers print colored rings called color bands. A 4-band resistor indicates its nominal resistance in Ohms (Ω) and its manufacturing tolerance percentage.
-</p>
+  <h3>Step-by-Step Decoding Process</h3>
+  
+  <div class="step-card">
+    <strong>Step 1: Orient the resistor correctly.</strong> Turn the resistor so that the metallic band (usually Gold or Silver) is positioned on your far right. This separated band represents the tolerance. You will always read the bands from left to right.
+  </div>
+  
+  <div class="step-card">
+    <strong>Step 2: Note the significant digits (Bands 1 &amp; 2).</strong> The first band gives you the first digit (tens place), and the second band gives you the second digit (units place). For instance, if Band 1 is Red (2) and Band 2 is Violet (7), your base two-digit number is <strong>27</strong>.
+  </div>
 
-<h2>Step-by-Step Decoding Process</h2>
+  <div class="step-card">
+    <strong>Step 3: Apply the multiplier (Band 3).</strong> The third band specifies the power of ten (10<sup>n</sup>) by which you multiply your two-digit number. If Band 3 is Orange (10<sup>3</sup> or &times;1,000), multiply 27 &times; 1,000 = <strong>27,000 &Omega;</strong> (27 k&Omega;).
+  </div>
 
-<p>
-  <strong>Step 1: Orient the resistor correctly.</strong> Turn the resistor so that the metallic band (usually Gold or Silver) is positioned on your far right. This separated band represents the tolerance. You will always read the bands from left to right.
-</p>
+  <div class="step-card">
+    <strong>Step 4: Check tolerance (Band 4).</strong> The fourth band indicates the precision limit. A Gold band represents &plusmn;5% tolerance. A 27 k&Omega; resistor with a &plusmn;5% tolerance can measure anywhere between 25.65 k&Omega; and 28.35 k&Omega; on a digital multimeter (DMM).
+  </div>
+</section>
 
-<p>
-  <strong>Step 2: Note the significant digits (Bands 1 &amp; 2).</strong> The first band gives you the first digit (tens place), and the second band gives you the second digit (units place). For instance, if Band 1 is Red (2) and Band 2 is Violet (7), your base two-digit number is <strong>27</strong>.
-</p>
 
-<p>
-  <strong>Step 3: Apply the multiplier (Band 3).</strong> The third band specifies the power of ten (10<sup>n</sup>) by which you multiply your two-digit number. If Band 3 is Orange (10<sup>3</sup> or &times;1,000), multiply 27 &times; 1,000 = <strong>27,000 &Omega; (27 k&Omega;)</strong>.
-</p>
-
-<p>
-  <strong>Step 4: Check tolerance (Band 4).</strong> The fourth band indicates the precision limit. A Gold band represents &plusmn;5% tolerance. A 27 k&Omega; resistor with a &plusmn;5% tolerance can measure anywhere between 25.65 k&Omega; and 28.35 k&Omega; on a digital multimeter (DMM).
-</p>
 
 <h2>Standard 4-Band Color Code Chart</h2>
 
-<table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; width: 100%; text-align: left;">
+<table  cellpadding="6" cellspacing="0" style="border-collapse: collapse; width: 100%; text-align: left;">
   <thead>
     <tr style="background-color: #000000;">
       <th>Color</th>
